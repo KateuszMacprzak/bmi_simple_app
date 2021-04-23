@@ -1,11 +1,12 @@
+import easygui
+import pygame
+
 def cm_to_m(given_value:int):
     if given_value<3:
         return given_value
     else:
         return given_value/100
 
-
-import easygui
 w=easygui.buttonbox('Chcesz sprawdzić swoje BMI', 'Your BMI status',['Tak','Zamknij program'])
 if w=='Tak':
     weight = int(easygui.enterbox('Podaj wagę: '))
