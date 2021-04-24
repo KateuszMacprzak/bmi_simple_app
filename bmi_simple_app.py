@@ -13,7 +13,8 @@ def show_image():
     obrazek = pygame.image.load('poland_bmi.png')
     plot.blit(obrazek, [0, 0])
     pygame.display.flip()
-    time.sleep(3)
+    time.sleep(5)
+    pygame.display.quit()
 def check_bmi(given_weight, given_height):
     result = given_weight / (given_height * given_height)
     if result < 15 :
@@ -52,8 +53,10 @@ def second_try():
     if choice == 'Zamknij program':
         easygui.msgbox('3maj forme, life if life ','Exit window')
         time.sleep(3)
-w=easygui.buttonbox('Chcesz sprawdzić swoje BMI', 'Your BMI status',['Tak','Zamknij program '])
-if w=='Tak':
-    weight = int(easygui.enterbox('Podaj wagę: '))
-    height = cm_to_m(float(easygui.enterbox('Podaj wzrost w centymentrach: ')))
-    check_bmi(weight, height)
+
+if __name__ == '__main__':
+    w=easygui.buttonbox('Chcesz sprawdzić swoje BMI', 'Your BMI status',['Tak','Zamknij program '])
+    if w=='Tak':
+        weight = int(easygui.enterbox('Podaj wagę: '))
+        height = cm_to_m(float(easygui.enterbox('Podaj wzrost w centymentrach: ')))
+        check_bmi(weight, height)
